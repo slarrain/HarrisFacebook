@@ -54,8 +54,9 @@ def img_url_list(htmlsoup):
     #print souptable
     for x in souptable.find_all('img'):
         a = x['src']
-        b = a[:70]+'large'+a[75:]
-        image_list.append(b)
+        if (a[-12:]!= 'gargoyle.jpg'):
+            b = a[:70]+'large'+a[75:]
+            image_list.append(b)
     #print image_list
     return image_list
 
