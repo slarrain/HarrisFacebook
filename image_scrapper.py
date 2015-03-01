@@ -52,8 +52,11 @@ def img_url_list(htmlsoup):
     #print htmlsoup
     souptable = htmlsoup.find(id="content-area")
     #print souptable
-    for x in souptable.find_all('img'):
+    images = souptable.find_all('img')
+    #print images
+    for x in images:
         a = x['src']
+        print a[-12:]
         if (a[-12:]!= 'gargoyle.jpg'):
             b = a[:70]+'large'+a[75:]
             image_list.append(b)
@@ -73,6 +76,9 @@ def retrieve_list(image_list):
 if __name__ == "__main__":
     x = read(list_url)
     y = img_url_list(x)
+    #for n in y:
+        #print n
+
     retrieve_list(y)
     print 'Done'
 
